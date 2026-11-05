@@ -9,6 +9,8 @@ const allowedHosts = codespace
   : [];
 
 export default defineConfig({
+  // GitHub Pages publica este proyecto bajo /Rofee/; el desarrollo usa la raíz.
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/Rofee/' : '/',
   server: { host: '0.0.0.0', port: 5173, allowedHosts },
   preview: { host: '0.0.0.0', port: 4173, allowedHosts },
 });

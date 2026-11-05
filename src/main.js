@@ -49,7 +49,7 @@ $('#app').innerHTML = `
 function heading(kicker, title, text, extra = '') {
   return `<section class="page-heading"><div><div class="eyebrow"><span class="tiny-spark">✳</span> ${kicker}</div><h1>${title}</h1><p>${text}</p></div>${extra}</section>`;
 }
-const emotionImage = (e, size = 32) => `<img src="/emojis/${e.emoji}.svg" width="${size}" height="${size}" alt="" loading="eager">`;
+const emotionImage = (e, size = 32) => `<img src="${import.meta.env.BASE_URL}emojis/${e.emoji}.svg" width="${size}" height="${size}" alt="" loading="eager">`;
 
 function render() {
   renderer?.destroy(); renderer = null;

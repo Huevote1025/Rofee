@@ -39,6 +39,16 @@ npm run preview
 
 `dist/` contiene los archivos para un hosting estático. Publicarlos en un servicio externo es un paso separado. Fuentes DM Sans y emojis están incluidos localmente: la aplicación compilada no necesita servicios externos para funcionar. No se utiliza IA ni reconocimiento de las emociones de la persona: se **representa** una emoción del robot.
 
+### Sitio público con GitHub Pages
+
+El workflow `.github/workflows/deploy.yml` instala las dependencias del lockfile, comprueba el modelo, compila y publica `dist/` cuando cambia `main`. También se puede iniciar desde **Actions → Publicar Rofee en GitHub Pages → Run workflow**.
+
+La primera vez, el repositorio debe tener **Settings → Pages → Build and deployment → Source → GitHub Actions** seleccionado. Esta es una configuración de GitHub y no de Codespaces. Si la ejecución muestra que Pages no está habilitado, activa esa opción y vuelve a ejecutar el workflow.
+
+La dirección prevista para este repositorio es **https://huevote1025.github.io/Rofee/**. La publicación está confirmada cuando el trabajo `deploy` termina correctamente y el sitio responde. El Codespace puede estar apagado.
+
+En GitHub Actions se usa la base `/Rofee/`; durante el desarrollo local y en Codespaces se conserva `/`. Las imágenes de emociones y el favicon usan la misma base para que no fallen al publicar en una subcarpeta. No hace falta un dominio personalizado ni un archivo `CNAME` para usar la dirección de GitHub Pages.
+
 ## Las cuatro secciones
 
 1. **Laboratorio:** rostro vectorial dibujado en HTML5 Canvas, ocho presets, controles continuos PAD, plano Russell interactivo, animaciones naturales, velocidad de transición, pantalla completa y exportación PNG. El restablecimiento lleva a neutralidad estricta `(0, 0, 0)`; el preset Calma es un estado agradable de baja activación.
